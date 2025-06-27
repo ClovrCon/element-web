@@ -16,6 +16,7 @@ import { UIFeature } from "../../../settings/UIFeature";
 import LanguageSelector from "./LanguageSelector";
 import EmbeddedPage from "../../structures/EmbeddedPage";
 import { MATRIX_LOGO_HTML } from "../../structures/static-page-vars";
+import clovrLabsLogo from "../../../../res/img/clovrlabs-logo-black.png";
 
 export default class Welcome extends React.PureComponent<EmptyObject> {
     public render(): React.ReactNode {
@@ -35,7 +36,7 @@ export default class Welcome extends React.PureComponent<EmptyObject> {
         if (!pageUrl) {
             // Fall back to default and replace $logoUrl in welcome.html
             const brandingConfig = SdkConfig.getObject("branding");
-            const logoUrl = brandingConfig?.get("auth_header_logo_url") ?? "img/clovrlabs-logo-black.png";
+            const logoUrl = brandingConfig?.get("auth_header_logo_url") ?? clovrLabsLogo;
             replaceMap["$logoUrl"] = logoUrl;
             pageUrl = "welcome.html";
         }
